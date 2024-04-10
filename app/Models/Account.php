@@ -12,4 +12,12 @@ class Account extends Model
     public function client() {
         return $this->belongsTo(Client::class);
     }
+
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function relatedTransactions() {
+        return $this->hasMany(Transaction::class, 'related_account_id');
+    }
 }

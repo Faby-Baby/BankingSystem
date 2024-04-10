@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->foreignId('account_id')->constrained()->onDelete('cascade');
+            $table->string('type');
+            $table->decimal('amount', 10, 2);
+            $table->foreignId('related_account_id')->nullable()->constrained('accounts')->onDelete('set null');
             $table->timestamps();
         });
     }

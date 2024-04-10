@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
+
+    public function account() {
+        return $this->belongsTo(Account::class);
+    }
+
+    public function relatedAccount() {
+        return $this->belongsTo(Account::class, 'related_account_id');
+    }
 }
