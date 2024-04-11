@@ -15,7 +15,7 @@
         <tbody>
             @forelse($transactions as $transaction)
             <tr>
-                <td>{{ $transaction->related_account_id ? $transaction->relatedAccount->name: 'N/A' }}</td>
+                <td>{{ $transaction->related_account_id ? $transaction->relatedAccount->account_number : 'N/A' }}</td>
                 <td>{{ number_format($transaction->amount,2) }} {{ $transaction->currency }}</td>
                 <td>{{ ucfirst($transaction->type) }}</td>
                 <td>{{ $transaction->created_at ->format('Y-m-d H:i:s')}}</td>

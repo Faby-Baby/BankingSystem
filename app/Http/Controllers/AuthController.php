@@ -29,7 +29,7 @@ class AuthController extends Controller
         $client = $user->client;
         
 
-        return redirect()->route('client.transactions', ['client_id' => $client->id])->with('success', 'Login successful');
+        return redirect()->route('transactions.index', ['client_id' => $client->id])->with('success', 'Login successful');
 
     }
 
