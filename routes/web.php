@@ -40,6 +40,7 @@ Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
 
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/{client_id}', [TransactionController::class, 'trans']);
 
 Route::get('/register', [RegistrationController::class, 'create']);
 Route::post('/register', [RegistrationController::class, 'send']);
