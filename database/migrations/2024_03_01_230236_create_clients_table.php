@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('telephone');
             $table->string('address');
             $table->date('date_of_birth');
-            $table->string('company_logo');
             $table->timestamps();
 
         });

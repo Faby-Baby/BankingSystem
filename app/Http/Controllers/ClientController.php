@@ -17,7 +17,8 @@ class ClientController extends Controller
             'name' => 'string|required',
             'email' => 'string|email|required',
             'phone' => 'string|required|size:12',
-            'address' => 'string|max:75|required|'
+            'address' => 'string|max:75|required|',
+            'logo' => 'required|file|image|max:2048'
         ]);
 
         $file = $request->file('logo');
