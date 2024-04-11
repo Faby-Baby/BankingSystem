@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,4 @@ Route::post('/login', [AuthController::class, 'store']);
 Route::get('/clients/add', [ClientController::class, 'create'])->middleware('auth');
 Route::post('/clients', [ClientController::class, 'send'])->middleware('auth');
 Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/transactions',[TransactionController::class, 'index'])->name('transactions.index');
