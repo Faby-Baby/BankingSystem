@@ -3,11 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
-<<<<<<< HEAD
 use App\Http\Controllers\TransactionController;
-=======
 use App\Http\Controllers\RegistrationController;
->>>>>>> 40e9b01a73c22dc2f3ae161e8815efd0b47008de
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,17 +31,15 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 // Create additional Routes below
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store']);
-
-<<<<<<< HEAD
-Route::get('/clients/add', [ClientController::class, 'create'])->middleware('auth');
-Route::post('/clients', [ClientController::class, 'send'])->middleware('auth');
 Route::get('/logout', [AuthController::class, 'logout']);
-Route::get('/transactions',[TransactionController::class, 'index'])->name('transactions.index');
-=======
+
+
 Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/clients/add', [ClientController::class, 'create']);
+Route::post('/clients', [ClientController::class, 'send']);
+
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
 
 Route::get('/register', [RegistrationController::class, 'create']);
 Route::post('/register', [RegistrationController::class, 'send']);
->>>>>>> 40e9b01a73c22dc2f3ae161e8815efd0b47008de
