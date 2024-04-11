@@ -25,7 +25,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // Create additional Routes below
 Route::get('/login', [AuthController::class, 'create'])->name('login');
@@ -36,4 +36,4 @@ Route::post('/clients', [ClientController::class, 'send']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/register', [RegistrationController::class, 'create']);
-Route::post('/register', [RegistrationController::class, 'store']);
+Route::post('/register', [RegistrationController::class, 'send']);

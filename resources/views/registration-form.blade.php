@@ -10,6 +10,11 @@
             </ul>
         </div>
     @endif
+    @if (session()->has('error'))
+        <div class="alert alert-success">
+            {{ session()->get('error') }}
+        </div>
+    @endif
 
     <form class="row g-3" action="/register" method="post">
         @csrf
