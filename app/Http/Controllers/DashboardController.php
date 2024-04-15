@@ -10,7 +10,10 @@ class DashboardController extends Controller
 {
     public function index(): View
     {
-        $clients = Client::all();
-        return view('dashboard', ['clients' => $clients]);
+        $user = auth()->user();
+        $clientId = $user->client->id;
+
+        $client = Client::with('accounts')->find($clientId);
+        return view('client.dashboard', compact('client'));
     }
 }

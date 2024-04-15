@@ -55,7 +55,7 @@ class RegistrationController extends Controller
             // Optionally, log the user in and redirect them to a dashboard or home page
             Auth::login($user);
     
-            return redirect()->route('transactions.index', ['client_id' => $client->id])->with('success', 'Registration successful');
+            return redirect()->route('client.dash')->with('success', 'Registration successful');
     
         } catch (\Exception $e) {
             DB::rollBack();

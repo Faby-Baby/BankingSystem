@@ -24,12 +24,8 @@ class AuthController extends Controller
             return redirect('/login')->with('error', 'Invalid credentials. Check the email address and password entered.');
         }
 
-        $user = Auth::user();
 
-        $client = $user->client;
-        
-
-        return redirect()->route('client.trans', ['client_id' => $client->id])->with('success', 'Login successful');
+        return redirect()->route('client.dash')->with('success', 'Login successful');
 
     }
 
