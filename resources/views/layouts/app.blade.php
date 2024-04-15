@@ -24,6 +24,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/about') }}">About</a>
                 </li>
+                @if (Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('client.dash') }}">Dashboard</a>
+                </li>
+                @endif
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('/about') }}">About</a>
                 </li> -->
@@ -39,6 +44,9 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/client/support') }}">Support</a>
                     </li>
                 @endif
             </ul>

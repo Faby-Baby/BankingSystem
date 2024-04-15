@@ -35,4 +35,10 @@ class ClientController extends Controller
 
         return redirect('/dashboard')->with('success', 'Task was successful!');
     }
+
+    public function help()
+    {
+        // You can pass any additional data to the view if needed
+        return view('client.support');
+    }
 }

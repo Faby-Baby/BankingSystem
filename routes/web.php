@@ -49,3 +49,4 @@ Route::post('/register', [RegistrationController::class, 'send']);
 Route::get('/client/accounts/create', [ClientAccountController::class, 'create'])->name('client.create.account');
 Route::post('/client/accounts/store', [ClientAccountController::class, 'store'])->name('client.store.account');
 
+Route::get('/client/support', [ClientController::class, 'help'])->name('client.support');
