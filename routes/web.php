@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientAccountController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
@@ -38,7 +39,13 @@ Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
 
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
-Route::get('/transactions/{client_id}', [TransactionController::class, 'trans'])->name('client.trans');
+Route::get('/client/accounts/{accountId}/transactions', [TransactionController::class, 'trans'])->name('client.transactions');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('client.dash');
 
 Route::get('/register', [RegistrationController::class, 'create']);
 Route::post('/register', [RegistrationController::class, 'send']);
+
+
+Route::get('/client/accounts/create', [ClientAccountController::class, 'create'])->name('client.create.account');
+Route::post('/client/accounts/store', [ClientAccountController::class, 'store'])->name('client.store.account');
+
