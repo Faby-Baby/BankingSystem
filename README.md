@@ -45,9 +45,9 @@ cp .env.example .env
 
 5. **Database setup using pgAdmin4**
 
-- **Create a new login role**: Open pgAdmin4, right-click on 'Login/Group Roles', and select 'Create' > 'Login/Group Role'. Enter a name and password for your role under the 'Definition' tab.
+- **Create a new login role**: Open pgAdmin4, right-click on 'Login/Group Roles', and select 'Create' > 'Login/Group Role'. Enter 'bankmanager' as the name and 'banker' as the password for your role under the 'Definition' tab.
 
-- **Create a database**: Right-click on 'Databases', and select 'Create' > 'Database'. Name your database and set the owner to the login role you just created.
+- **Create a database**: Right-click on 'Databases', and select 'Create' > 'Database'. Name your database as 'bankingsystem' and set the owner to the login role you just created.
 
 After creating your database and role, update your `.env` file with your PostgreSQL settings:
 
