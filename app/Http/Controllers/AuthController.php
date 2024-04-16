@@ -25,8 +25,16 @@ class AuthController extends Controller
         }
 
 
-        return redirect()->route('client.dash')->with('success', 'Login successful');
-
+        if (auth()->user()->role === 'client') {
+            // Redirect clients to the client dashboard
+            return redirect()->route('client.dash')->with('success', 'Login successful');
+        } elseif (auth()->user()->role === 'employee') {
+            // Redirect employees to their dashboard or any other appropriate page
+            return redirect()->route('employee.clients')->with('success', 'Login successful');
+        } else {
+            // Handle other roles or unexpected cases
+            return redirect('/login')->with('error', 'Unknown role. Please contact support.');
+        }
     }
 
     public function logout(Request $request) : RedirectResponse {

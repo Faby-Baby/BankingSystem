@@ -37,6 +37,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 //client routes
 Route::middleware(['auth', 'client'])->group(function () {
+    
 Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
 
