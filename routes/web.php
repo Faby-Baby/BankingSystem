@@ -68,4 +68,4 @@ Route::delete('/employee/accounts/{accountId}', [EmployeeController::class, 'clo
 });
 
 
-
+Route::get('/client/support', [ClientController::class, 'help'])->name('client.support');
