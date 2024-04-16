@@ -36,7 +36,7 @@ Route::post('/login', [AuthController::class, 'store']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 //client routes
-
+Route::middleware(['auth', 'client'])->group(function () {
 Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
 
@@ -51,9 +51,11 @@ Route::post('/register', [RegistrationController::class, 'send']);
 Route::get('/client/accounts/create', [ClientAccountController::class, 'create'])->name('client.create.account');
 Route::post('/client/accounts/store', [ClientAccountController::class, 'store'])->name('client.store.account');
 Route::get('/client/support', [ClientController::class, 'help'])->name('client.support');
+});
+
 
 //Employee routes
-
+Route::middleware(['auth', 'employee'])->group(function () {
 Route::get('/employee/clients', [EmployeeController::class, 'index'])->name('employee.clients');
 Route::get('/employee/clients/{clientId}', [EmployeeController::class, 'show'])->name('employee.clients.show');
 
@@ -62,7 +64,7 @@ Route::put('/employee/clients/{clientId}', [EmployeeController::class, 'update']
 
 Route::get('/employee/accounts/{accountId}/close', [EmployeeController::class, 'confirmCloseAccount'])->name('employee.accounts.confirmClose');
 Route::delete('/employee/accounts/{accountId}', [EmployeeController::class, 'closeAccount'])->name('employee.accounts.close');
-
+});
 
 
 
