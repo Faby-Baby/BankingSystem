@@ -5,9 +5,12 @@ PGADMIN4 REQUIRED
 Steps: 
 
 Git clone 
-Composer install
+
 https://getcomposer.org/download/
 Download and run Composer-Setup.exe - it will install the latest composer version whenever it is executed.
+Composer install
+
+
 
 cp .env.example .env
 php artisan key:generate
