@@ -35,6 +35,7 @@ Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
+//client routes
 
 Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
@@ -49,6 +50,9 @@ Route::post('/register', [RegistrationController::class, 'send']);
 
 Route::get('/client/accounts/create', [ClientAccountController::class, 'create'])->name('client.create.account');
 Route::post('/client/accounts/store', [ClientAccountController::class, 'store'])->name('client.store.account');
+Route::get('/client/support', [ClientController::class, 'help'])->name('client.support');
+
+//Employee routes
 
 Route::get('/employee/clients', [EmployeeController::class, 'index'])->name('employee.clients');
 Route::get('/employee/clients/{clientId}', [EmployeeController::class, 'show'])->name('employee.clients.show');
@@ -61,4 +65,4 @@ Route::delete('/employee/accounts/{accountId}', [EmployeeController::class, 'clo
 
 
 
-Route::get('/client/support', [ClientController::class, 'help'])->name('client.support');
+

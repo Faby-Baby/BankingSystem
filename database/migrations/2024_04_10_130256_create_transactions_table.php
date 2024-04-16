@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('account_id')->constrained()->onDelete('cascade');
+            $table->foreignId('account_id')->constrained();
             $table->enum('type', ['deposit', 'withdrawal', 'transfer', 'bill_payment', 'currency_exchange']);
             $table->decimal('amount', 10, 2);
             $table->string('currency', 3)->default('USD');

@@ -61,7 +61,7 @@ class EmployeeController extends Controller
     public function closeAccount($accountId)
     {
         $account = Account::findOrFail($accountId);
-        // Close the account (perform necessary logic)
+        // Close the account
         $account->delete();
         return redirect()->route('employee.clients.show', ['clientId' => $account->client_id])->with('success', 'Account closed successfully.');
 }
