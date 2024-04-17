@@ -7,22 +7,19 @@
     <div>
         <h2>{{ $client->name }}</h2>
         <p><strong>Email:</strong> {{ $client->email }}</p>
-        
+        <!-- Add more client details here -->
         <h3>Accounts:</h3>
         <ul>
-        @foreach ($client->accounts as $account)
-                <li>
-                    {{ $account->account_number }} - {{ $account->account_type }}
-                    <form action="{{ route('employee.accounts.confirmClose', ['accountId' => $account->id]) }}" method="GET" class="d-inline">
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Close Account</button>
-                    </form>
-                </li>
+            @foreach ($client->accounts as $account)
+                <li>{{ $account->account_number }} - {{ $account->account_type }}</li>
             @endforeach
         </ul>
     </div>
     <div class="mt-3">
         <a href="{{ route('employee.clients.edit', ['clientId' => $client->id]) }}" class="btn btn-primary">Edit</a>
+        @if (!empty($client->accounts) && $client->accounts->isNotEmpty())
+        <a href="{{ route('employee.accounts.confirmClose', ['accountId' => $account->id]) }}" class="btn btn-danger">Close Account</a>
+        @endif
     </div>
 
 </div>

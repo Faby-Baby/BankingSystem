@@ -25,13 +25,23 @@
                     <a class="nav-link" href="{{ url('/about') }}">About</a>
                 </li>
                 @if (Auth::check())
+                @if (Auth::user()->role === 'client')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('client.dash') }}">Dashboard</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/client/support') }}">Support</a>
+                </li>
+                @elseif (Auth::user()->role === 'employee')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/employee/clients') }}">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('transactions.index') }}">Transactions</a>
+                </li>
                 @endif
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/about') }}">About</a>
-                </li> -->
+                @endif
+                
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 @if (!Auth::check())
@@ -44,9 +54,6 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/client/support') }}">Support</a>
                     </li>
                 @endif
             </ul>
