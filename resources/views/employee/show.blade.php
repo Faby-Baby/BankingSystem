@@ -17,8 +17,9 @@
     </div>
     <div class="mt-3">
         <a href="{{ route('employee.clients.edit', ['clientId' => $client->id]) }}" class="btn btn-primary">Edit</a>
+        @if (!empty($client->accounts) && $client->accounts->isNotEmpty())
         <a href="{{ route('employee.accounts.confirmClose', ['accountId' => $account->id]) }}" class="btn btn-danger">Close Account</a>
-   
+        @endif
     </div>
 
 </div>

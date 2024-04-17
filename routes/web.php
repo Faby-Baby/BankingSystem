@@ -41,7 +41,7 @@ Route::middleware(['auth', 'role:client'])->group(function () {
 Route::get('/clients/add', [ClientController::class, 'create']);
 Route::post('/clients', [ClientController::class, 'send']);
 
-Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+
 Route::get('/client/accounts/{accountId}/transactions', [TransactionController::class, 'trans'])->name('client.transactions');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('client.dash');
 
@@ -55,9 +55,10 @@ Route::get('/client/support', [ClientController::class, 'help'])->name('client.s
 });
 
 
-Route::middleware(['auth', 'role:client'])->group(function () {
+Route::middleware(['auth', 'role:employee'])->group(function () {
 Route::get('/employee/clients', [EmployeeController::class, 'index'])->name('employee.clients');
 Route::get('/employee/clients/{clientId}', [EmployeeController::class, 'show'])->name('employee.clients.show');
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
 
 Route::get('/employee/clients/{clientId}/edit', [EmployeeController::class, 'edit'])->name('employee.clients.edit');
 Route::put('/employee/clients/{clientId}', [EmployeeController::class, 'update'])->name('employee.clients.update');
@@ -67,4 +68,3 @@ Route::delete('/employee/accounts/{accountId}', [EmployeeController::class, 'clo
 
 });
 
-Route::get('/client/support', [ClientController::class, 'help'])->name('client.support');
